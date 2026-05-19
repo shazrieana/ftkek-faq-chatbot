@@ -58,14 +58,30 @@ df, model, corpus_embeddings = load_chatbot()  # Initialize tools
 # 60% Width for Website Viewport, 40% Width for Chatbot Assistant Viewport
 col_web, col_chat = st.columns([6, 4])
 
-# --- LEFT VIEWPORT: The Official Faculty Web Portal ---
+# --- LEFT VIEWPORT: The Student Resource Portal Terminal ---
 with col_web:
-    st.markdown("### 🌐 FTKEK Official Web Portal")
-    st.components.v1.iframe(
-        "https://blog.utem.edu.my/ftkekstudentmobility/", 
-        height=720, 
-        scrolling=True
-    )
+    st.markdown("### 🌐 FTKEK Student Portal Hub")
+    st.write("Click any link below to open the official faculty sub-portals directly in a new secure window tab:")
+    
+    # Clean UI styling for portal links
+    st.info("🔗 **Quick Navigation Links:**")
+    
+    st.markdown("""
+    * 🎓 [Official FTKEK Homepage](https://ftkek.utem.edu.my/) - Main faculty updates and announcements.
+    * ✈️ [FTKEK Student Mobility Portal](https://blog.utem.edu.my/ftkekstudentmobility/) - International programs and student exchanges.
+    * 📜 [UTeM Academic Handbook](https://www.utem.edu.my/) - General academic guidelines and course details.
+    """)
+    
+    # Let's add a clean placeholder image or status dashboard metric cards to make the left side look rich
+    st.divider()
+    st.subheader("📊 Faculty Quick Reference Metrics")
+    m_col1, m_col2 = st.columns(2)
+    with m_col1:
+        st.metric(label="Active Academic Departments", value="4")
+    with m_col2:
+        st.metric(label="SBERT Confidence Threshold", value="60%")
+        
+    st.caption("💡 *Tip: If you cannot find information on the right side chatbot, use the links above to cross-reference the official portals directly!*")
 
 # --- RIGHT VIEWPORT: Your Closed-Domain AI Assistant ---
 with col_chat:
