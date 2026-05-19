@@ -38,7 +38,7 @@ st.markdown("""
             padding-right: 10px !important;
         }
     </style>
-""", unsafe_html=True)
+""", unsafe_allow_html=True)
 
 # ==========================================
 # 2. LOAD BRAIN & DATA (CACHED)
@@ -137,7 +137,7 @@ with col_chat:
                 ans = df[df['Question'] == 'who is the deputy dean of academic affairs?']['Answer'].values[0]
                 response = f"{ans}\n\n*You are still in the Dean topic. You can look up other Deans (Main Dean, Research, Student Affairs) or ask a new question.*"
             elif "research" in user_input or "postgraduate" in user_input:
-                ans = df[df['Question'] == 'who is the deputy dean of research adn postgraduates studies?']['Answer'].values[0]
+                ans = df[df['Question'] == 'who is the deputy dean of research and postgraduates studies?']['Answer'].values[0]
                 response = f"{ans}\n\n*You are still in the Dean topic. You can look up other Deans (Main Dean, Academic, Student Affairs) or ask a new question.*"
             elif "student" in user_input or "alumni" in user_input:
                 ans = df[df['Question'] == 'who is the deputy dean of student and alumni?']['Answer'].values[0]
@@ -158,16 +158,16 @@ with col_chat:
         elif st.session_state.waiting_for_head_type:
             if "engineering" in user_input:
                 if "technology" in user_input:
-                    ans = df[df['Question'] == 'who is the deparment head of engineering technology?']['Answer'].values[0]
+                    ans = df[df['Question'] == 'who is the department head of engineering technology?']['Answer'].values[0]
                     response = f"{ans}\n\n*You are still looking at Head of Departments. You can choose another one (Engineering, Technology, Diploma) or ask something else.*"
                 else:
-                    ans = df[df['Question'] == 'who is the deparment head of engineering?']['Answer'].values[0]
+                    ans = df[df['Question'] == 'who is the department head of engineering?']['Answer'].values[0]
                     response = f"{ans}\n\n*You are still looking at Head of Departments. You can choose another one (Engineering Technology, Technology, Diploma) or ask something else.*"
             elif "technology" in user_input:
-                ans = df[df['Question'] == 'who is the deparment head of technology?']['Answer'].values[0]
+                ans = df[df['Question'] == 'who is the department head of technology?']['Answer'].values[0]
                 response = f"{ans}\n\n*You are still looking at Head of Departments. You can choose another one (Engineering, Engineering Technology, Diploma) or ask something else.*"
             elif "diploma" in user_input:
-                ans = df[df['Question'] == 'who is the deparment head of diploma?']['Answer'].values[0]
+                ans = df[df['Question'] == 'who is the department head of diploma?']['Answer'].values[0]
                 response = f"{ans}\n\n*You are still looking at Head of Departments. You can choose another one (Engineering, Engineering Technology, Technology) or ask something else.*"
             else:
                 st.session_state.waiting_for_head_type = False
